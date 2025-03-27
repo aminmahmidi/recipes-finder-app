@@ -1,0 +1,11 @@
+.navContainer{
+    @apply p-4 rounded-lg shadow-md;
+    @apply border-teal-100 flex justify-center  ;
+    @apply content-between
+}
+.navLink{
+@apply m-10
+}
+.firstSection{
+
+}
