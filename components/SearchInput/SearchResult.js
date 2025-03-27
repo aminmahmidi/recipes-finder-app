@@ -36,13 +36,7 @@ export default function SearchResult({ results }) {
   return (
     <div>
       {error && (
-        <div style={{
-          color: "red",
-          padding: "10px",
-          marginBottom: "10px",
-          border: "1px solid red",
-          borderRadius: "4px",
-        }}>
+        <div>
           {error}
         </div>
       )}
@@ -108,8 +102,6 @@ export default function SearchResult({ results }) {
           </Link>
         ))}
       </div>
-
-      {/* Pagination - will only show if totalPages > 1 */}
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

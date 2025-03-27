@@ -5,14 +5,12 @@ import { usePathname } from "next/navigation";
 const NavLink = ({ children, href }) => {
   const path = usePathname()
   return (
-    <>
       <Link
         className={[style.navLink, path === href ? style.active : ""].join(" ")}
         href={href}
       >
         {children}
       </Link>
-    </>
   );
 };
 

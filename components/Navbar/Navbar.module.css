@@ -1,11 +1,34 @@
-.navContainer{
-    @apply p-4 rounded-lg shadow-md;
-    @apply border-teal-100 flex justify-center  ;
-    @apply content-between
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  box-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.1), 
+              0 2px 4px 2px rgba(0, 0, 0, 0.06);
+             
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+  background-color: var(--background-color);
 }
-.navLink{
-@apply m-10
-}
-.firstSection{
 
+.firstSection {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+
+.logoContainer{
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+}
+.logo{
+    padding: 0;
+    margin: 0;
+    color: var(--text-color); 
 }

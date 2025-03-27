@@ -1,7 +1,13 @@
-.active{
-    color: red;
-}
-.navLink{
+.navLink {
+    margin: 0 10px;
     text-decoration: none;
-    @apply mr-10
+    border-bottom: 2px solid transparent;
+    color: var(--text-color-two);
+    font-size: 20px;
+    z-index: 1;
+  }
+  
+.active {
+  border-bottom: 2px solid var(--text-color-two);
+  font-weight: bolder;
 }

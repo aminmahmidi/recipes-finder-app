@@ -1,0 +1,20 @@
+.SearchContainer{
+    border: 2px solid red;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 2 1 auto;
+    background-color: var(--background-color);
+ box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.input{
+
+}
+.loaderContainer{
+    position: absolute;
+    right: 0;
+}
