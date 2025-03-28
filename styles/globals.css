@@ -1,5 +1,6 @@
 :root {
   --background-color: #ffffe6;
+  --primary-color:#F7F6BB;
   --text-color: #071813;
   --text-color-two:#114232;
   --btn-color: #FCDC2A;
@@ -7,8 +8,12 @@
 }
 [data-theme="dark"] {
     --background-color: #0a231b;
-    --text-color: rgb(241, 241, 241);
+    --primary-color:#08412e;
+    --text-color: rgb(255, 255, 255);
     --text-color-two:#ffffe6;
+  }
+  *{
+    box-sizing: border-box
   }
 
   body{

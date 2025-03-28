@@ -38,7 +38,8 @@
     /* transition: 0.2s; */
   }
   .radioIcon svg {
-    padding: 5px;
+    padding: 7px;
+    font-size: 30px;
   }
   .label {
     /* border-bottom: 1px solid gray; */
@@ -46,9 +47,5 @@
     align-items: center;
     align-content: center;
     cursor: pointer;
-  }
-  .label svg {
-    margin: 0 10px;
-    font-size: 18px;
   }
   
