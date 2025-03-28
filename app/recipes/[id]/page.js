@@ -1,9 +1,15 @@
 // app/RecipeDetail/[id]/page.jsx
 "use client";
 
-import { useState, useEffect } from 'react';
-import { getFavorites, addToFavorites, removeFromFavorites, isFavorite } from '@/utils/favorites';
-
+import { useState, useEffect } from "react";
+import {
+  getFavorites,
+  addToFavorites,
+  removeFromFavorites,
+  isFavorite,
+} from "@/utils/favorites";
+import { BarLoader } from "react-spinners";
+import style from "./details.module.css";
 export default function RecipeDetail({ params }) {
   const { id } = params;
   const [recipe, setRecipe] = useState(null);
@@ -15,7 +21,7 @@ export default function RecipeDetail({ params }) {
     async function fetchRecipe() {
       try {
         const res = await fetch(
-          `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=3bd7a4f8ff344dc1a1fce81eea2fe72a`
+          `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=fe6cdd39f4da4fcd8ed5fef54cd52804`
         );
         if (!res.ok) throw new Error("Failed to fetch recipe");
         const data = await res.json();
@@ -39,33 +45,46 @@ export default function RecipeDetail({ params }) {
     setFavoriteStatus(!favoriteStatus);
   };
 
-  if (loading) return <div style={{ textAlign: "center", padding: "40px" }}>Loading...</div>;
-  if (error) return (
-    <div style={{ textAlign: "center", padding: "40px" }}>
-      <h2>Recipe Not Found</h2>
-      <p>We couldn't find the recipe you're looking for.</p>
-    </div>
-  );
+  if (loading)
+    return (
+      <div className={style.loading}>
+        Loading
+        <BarLoader className={style.loader} color={"gray"} size={100} />
+      </div>
+    );
+  if (error)
+    return (
+      <div style={{ textAlign: "center", padding: "40px" }}>
+        <h2>Recipe Not Found</h2>
+        <p>We couldn't find the recipe you're looking for.</p>
+      </div>
+    );
 
   return (
-    <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <div className={style.details} style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <h1 style={{ fontSize: "2rem", marginBottom: "20px" }}>
           {recipe.title}
         </h1>
         <button
           onClick={toggleFavorite}
           style={{
-            padding: '8px 16px',
-            backgroundColor: favoriteStatus ? '#ff4d4d' : '#f0f0f0',
-            color: favoriteStatus ? 'white' : '#333',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            height: 'fit-content',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px'
+            padding: "8px 16px",
+            backgroundColor: favoriteStatus ? "#ff4d4d" : "#f0f0f0",
+            color: favoriteStatus ? "white" : "#333",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+            height: "fit-content",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
           }}
         >
           {favoriteStatus ? (

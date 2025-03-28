@@ -35,7 +35,7 @@ export default function Search() {
       try {
         const params = new URLSearchParams();
         params.append("query", query);
-        params.append("apiKey", "3bd7a4f8ff344dc1a1fce81eea2fe72a");
+        params.append("apiKey", "fe6cdd39f4da4fcd8ed5fef54cd52804");
         params.append("number", "20");
 
         Object.entries(filters).forEach(([key, value]) => {

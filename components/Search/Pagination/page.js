@@ -1,13 +1,18 @@
 "use client";
-
-export default function Pagination({ currentPage, totalPages, setCurrentPage }) {
+import style from "./pagination.module.css";
+export default function Pagination({
+  currentPage,
+  totalPages,
+  setCurrentPage,
+}) {
   if (totalPages <= 1) return null;
 
   return (
-    <div className="pagination">
+    <div className={style.paginationContainer}>
       <button
         onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
         disabled={currentPage === 1}
+        className={style.navigationPage}
       >
         Previous
       </button>
@@ -16,7 +21,10 @@ export default function Pagination({ currentPage, totalPages, setCurrentPage }) 
         <button
           key={number}
           onClick={() => setCurrentPage(number)}
-          className={currentPage === number ? "active" : ""}
+          className={[
+            style.navigationNumberPage,
+            currentPage === number ? style.active : "",
+          ].join(" ")}
         >
           {number}
         </button>
@@ -25,6 +33,7 @@ export default function Pagination({ currentPage, totalPages, setCurrentPage }) 
       <button
         onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
         disabled={currentPage === totalPages}
+        className={style.navigationPage}
       >
         Next
       </button>

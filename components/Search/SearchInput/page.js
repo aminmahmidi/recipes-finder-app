@@ -2,6 +2,7 @@
 import Link from "next/link";
 import style from "./SearchInput.module.css";
 import Image from "next/image";
+import Pagination from "../Pagination/page";
 
 export default function SearchInput({
   query,
@@ -38,8 +39,13 @@ export default function SearchInput({
           {isLoading && <div className={style.loaderContainer}>Loading...</div>}
           <ul>
             {results.map((result) => (
-              <Link href={`/recipes/${result.id}`} key={result.id}>
+              <Link
+                href={`/recipes/${result.id}`}
+                className={style.searchListLink}
+                key={result.id}
+              >
                 <li
+                  className={style.searchList}
                   onClick={() => {
                     setQuery(result.title);
                     setIsDropdownOpen(false);
@@ -61,11 +67,6 @@ export default function SearchInput({
           </ul>
         </div>
       )}
-
-      {isDropdownOpen &&
-        query.length >= 2 &&
-        results.length === 0 &&
-        !isLoading && <div>No recipes found</div>}
     </div>
   );
 }

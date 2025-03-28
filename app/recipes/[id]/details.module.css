@@ -1,0 +1,16 @@
+.loading{
+    width: 100%;
+    color: var(--text-color);
+    display: grid;
+    align-content: center;
+    text-align: center;
+    margin: 20px auto;
+    padding-top: 100px;
+    font-size: 30px;
+}
+.loader{
+    margin: 20px auto;
+}
+.details{
+    color: var(--text-color);
+}

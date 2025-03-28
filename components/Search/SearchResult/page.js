@@ -3,6 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Pagination from "../Pagination/page";
+import style from "./searchResult.module.css";
+import Image from "next/image";
 
 export default function SearchResult({
   results = [],
@@ -38,21 +40,31 @@ export default function SearchResult({
   return (
     <div className="search-results">
       {error && <div className="error">{error}</div>}
-
-      <div className="results-grid">
+      <h2 className={style.recipeTitleTop}>Search Result</h2>
+      <div className={style.ResultsRecipeContainer}>
         {currentResults.map((result) => (
           <Link
+          className={style.recipeTitleLink}
             key={result.id}
             href={`/recipes/${result.id}`}
             onClick={(e) => handleRecipeClick(result.id, e)}
-            className="result-card"
           >
-            <div>
+            <div className={style.recipeCard}>
               {loadingId === result.id && (
-                <div className="loading-overlay">Loading recipe...</div>
+                <div>
+               Loading....
+                </div>
               )}
-              {result.image && <img src={result.image} alt={result.title} />}
-              <h3>{result.title}</h3>
+              {result.image && (
+                <Image
+                  width={300}
+                  height={200}
+                  src={result.image}
+                  alt={result.title}
+                  className={style.recipeImg}
+                />
+              )}
+              <h3 className={style.recipeTitle}>{result.title}</h3>
             </div>
           </Link>
         ))}
