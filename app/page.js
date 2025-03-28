@@ -1,5 +1,4 @@
 import SearchInput from "@/components/Search/page";
-import Image from "next/image";
 import HomePic from "./HomePic/page";
 import Title from "@/components/title/page";
 export default function Home() {

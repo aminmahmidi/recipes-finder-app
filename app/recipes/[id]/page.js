@@ -15,7 +15,7 @@ export default function RecipeDetail({ params }) {
     async function fetchRecipe() {
       try {
         const res = await fetch(
-          `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=e2fd6c3a11664ec29cba2b06dd17b0ad`
+          `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=3bd7a4f8ff344dc1a1fce81eea2fe72a`
         );
         if (!res.ok) throw new Error("Failed to fetch recipe");
         const data = await res.json();
