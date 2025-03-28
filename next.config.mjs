@@ -11,6 +11,10 @@ const nextConfig = {
       pathname: "/**", // All paths
     },
   ],
+  rules: {
+    "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
+    "@next/next/no-img-element": "off",
+  },
 };
 
 export default nextConfig;
