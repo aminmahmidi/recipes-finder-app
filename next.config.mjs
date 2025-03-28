@@ -11,14 +11,6 @@ const nextConfig = {
       pathname: "/**", // All paths
     },
   ],
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-
-  rules: {
-    "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
-    "@next/next/no-img-element": "off",
-  },
 };
 
 export default nextConfig;
