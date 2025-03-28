@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { getFavorites } from '@/utils/favorites';
-
+import style from './favorite.module.css'
 export default function FavoritesPage() {
   const [favorites, setFavorites] = useState([]);
 
@@ -14,6 +14,8 @@ export default function FavoritesPage() {
 
   return (
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "20px" }}>
+      <h1 className={style.title}>Favorites</h1>
+      <div className={style.favoritesContainer}>
       <h1 style={{ fontSize: "2rem", marginBottom: "30px" }}>Your Favorite Recipes</h1>
       
       {favorites.length === 0 ? (
@@ -41,6 +43,7 @@ export default function FavoritesPage() {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 }
